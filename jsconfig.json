@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "ES5",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@lib/*": ["library/*"],
+      "@gyf": ["library/plugins/yes"]
+    },
+    "lib": [
+      "dom",
+      "esnext",
+      "scripthost",
+      "dom.iterable"
+    ]
+  },
+  "exclude": ["node_modules"]
+}

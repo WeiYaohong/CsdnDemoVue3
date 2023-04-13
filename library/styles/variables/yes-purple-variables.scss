@@ -1,0 +1,62 @@
+$base-color-primary: #6954f0;
+$base-color-windows:#E7E7E7;
+$base-color-success: #13ce66;
+$base-color-warning: #ffba00;
+$base-color-danger: #ff4d4f;
+$base-color-error: #ff4d4f;
+$base-color-transition: #1890ff;
+
+:export {
+  yes-color-grey: $base-color-grey;
+  yes-color-black: $base-color-black;
+  yes-color-primary: $base-color-primary;
+  yes-color-primary-light-1: mix($base-color-white, $base-color-primary, 10%);
+  yes-color-primary-light-2: mix($base-color-white, $base-color-primary, 20%);
+  yes-color-primary-light-3: mix($base-color-white, $base-color-primary, 30%);
+  yes-color-primary-light-4: mix($base-color-white, $base-color-primary, 40%);
+  yes-color-primary-light-5: mix($base-color-white, $base-color-primary, 50%);
+  yes-color-primary-light-6: mix($base-color-white, $base-color-primary, 60%);
+  yes-color-primary-light-7: mix($base-color-white, $base-color-primary, 70%);
+  yes-color-primary-light-8: mix($base-color-white, $base-color-primary, 80%);
+  yes-color-primary-light-9: mix($base-color-white, $base-color-primary, 90%);
+  yes-color-success: $base-color-success;
+  yes-color-success-light-1: mix($base-color-white, $base-color-success, 10%);
+  yes-color-success-light-2: mix($base-color-white, $base-color-success, 20%);
+  yes-color-success-light-3: mix($base-color-white, $base-color-success, 30%);
+  yes-color-success-light-4: mix($base-color-white, $base-color-success, 40%);
+  yes-color-success-light-5: mix($base-color-white, $base-color-success, 50%);
+  yes-color-success-light-6: mix($base-color-white, $base-color-success, 60%);
+  yes-color-success-light-7: mix($base-color-white, $base-color-success, 70%);
+  yes-color-success-light-8: mix($base-color-white, $base-color-success, 80%);
+  yes-color-success-light-9: mix($base-color-white, $base-color-success, 90%);
+  yes-color-success-lighter: mix($base-color-white, $base-color-success, 90%);
+  yes-color-windows: $base-color-windows;
+  yes-color-windows-light-1: mix($base-color-white, $base-color-windows, 10%);
+  yes-color-windows-light-2: mix($base-color-white, $base-color-windows, 20%);
+  yes-color-windows-light-3: mix($base-color-white, $base-color-windows, 30%);
+  yes-color-windows-light-4: mix($base-color-white, $base-color-windows, 40%);
+  yes-color-windows-light-5: mix($base-color-white, $base-color-windows, 50%);
+  yes-color-windows-light-6: mix($base-color-white, $base-color-windows, 60%);
+  yes-color-windows-light-7: mix($base-color-white, $base-color-windows, 70%);
+  yes-color-windows-light-8: mix($base-color-white, $base-color-windows, 80%);
+  yes-color-windows-light-9: mix($base-color-white, $base-color-windows, 90%);
+  yes-color-windows-lighter: mix($base-color-white, $base-color-windows, 90%);
+  yes-color-warning: $base-color-warning;
+  yes-color-warning-light: mix($base-color-white, $base-color-warning, 80%);
+  yes-color-warning-lighter: mix($base-color-white, $base-color-warning, 90%);
+  yes-color-danger: $base-color-danger;
+  yes-color-danger-light: mix($base-color-white, $base-color-danger, 80%);
+  yes-color-danger-lighter: mix($base-color-white, $base-color-danger, 90%);
+  yes-color-error: $base-color-error;
+  yes-color-error-light: mix($base-color-white, $base-color-error, 80%);
+  yes-color-error-lighter: mix($base-color-white, $base-color-error, 90%);
+  yes-color-info: $base-color-text-secondary;
+  yes-color-info-light: mix($base-color-white, $base-color-text-secondary, 80%);
+  yes-color-info-lighter: mix(
+    $base-color-white,
+    $base-color-text-secondary,
+    90%
+  );
+  yes-border-radius-base: 2.5px;
+  yes-color-transition: $base-color-transition;
+}

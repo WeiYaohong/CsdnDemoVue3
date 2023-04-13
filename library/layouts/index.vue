@@ -1,0 +1,157 @@
+<template>
+  <div class="vue-admin-beautiful-wrapper" :class="{ mobile }">
+    <component
+      :is="'yes-layout-' + theme.layout"
+      :collapse="collapse"
+      :device="device"
+      :fixed-header="theme.fixedHeader"
+      :show-tabs="theme.showTabs"
+    />
+    <el-backtop target="#app" />
+    <!--  主题组件放到layouts下防止主题切换，导致主题组件重新加载 -->
+    <ums-theme-drawer />
+  </div>
+</template>
+
+<script>
+  import { useSettingsStore } from '@/store/modules/settings'
+
+  const imports = require.context('./', true, /\.vue$/)
+  const Components = {}
+  imports
+    .keys()
+    .filter((key) => key !== './index.vue')
+    .forEach((key) => {
+      Components[key.replace(/(\/|\.|index.vue)/g, '')] = imports(key).default
+    })
+
+  export default defineComponent({
+    name: 'Layouts',
+    components: Components,
+    setup() {
+      const settingsStore = useSettingsStore()
+      const { device, collapse, theme } = storeToRefs(settingsStore)
+      const { toggleDevice, foldSideBar, openSideBar, updateTheme } =
+        settingsStore
+
+      let mobile = ref(false)
+      let oldLayout = theme.value.layout
+
+      const resizeBody = () => {
+        mobile.value = document.body.getBoundingClientRect().width - 1 < 992
+      }
+
+      watch(mobile, (val) => {
+        if (val) {
+          oldLayout = theme.value.layout
+          foldSideBar()
+        } else {
+          openSideBar()
+        }
+        theme.value.layout = val ? 'vertical' : oldLayout
+        toggleDevice(val ? 'mobile' : 'desktop')
+      })
+
+      resizeBody()
+      updateTheme()
+
+      window.addEventListener('resize', resizeBody)
+      onUnmounted(() => {
+        if (mobile) theme.value.layout = oldLayout
+        window.removeEventListener('resize', resizeBody)
+      })
+
+      return {
+        theme,
+        device,
+        mobile,
+        collapse,
+        foldSideBar,
+        openSideBar,
+        toggleDevice,
+      }
+    },
+  })
+</script>
+
+<style lang="scss" scoped>
+  .vue-admin-beautiful-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    [class*='yes-layout-'] {
+      :deep() {
+        .yes-layout-header {
+          box-shadow: $base-box-shadow;
+        }
+      }
+
+      &.fixed {
+        padding-top: $base-nav-height + $base-tabs-height;
+      }
+
+      &.fixed.no-tabs-bar {
+        padding-top: $base-nav-height;
+      }
+    }
+
+    :deep() {
+      .fixed-header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: $base-z-index - 1;
+        width: 100%;
+      }
+
+      .yes-main {
+        position: relative;
+        width: auto;
+        min-height: 100%;
+        margin-left: $base-left-menu-width;
+
+        &.is-collapse-main {
+          margin-left: $base-left-menu-width-min;
+
+          .fixed-header {
+            width: $base-right-content-width-min;
+          }
+        }
+
+        &:not(.is-collapse-main) {
+          .fixed-header {
+            width: $base-right-content-width;
+          }
+        }
+      }
+    }
+
+    /* 手机端开始 */
+    &.mobile {
+      :deep() {
+        .yes-layout-vertical {
+          .el-scrollbar.yes-side-bar.is-collapse {
+            width: 0;
+          }
+
+          .yes-main {
+            .fixed-header {
+              width: 100%;
+            }
+
+            margin-left: 0;
+          }
+        }
+
+        /* 隐藏分页和页码跳转 */
+        .el-pager,
+        .el-pagination__jump {
+          display: none;
+        }
+      }
+    }
+
+    /* 手机端结束 */
+  }
+</style>

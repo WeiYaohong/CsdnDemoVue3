@@ -1,0 +1,116 @@
+
+  // 修改样式变量
+  $vxe-font-size: 14px;
+  $vxe-font-color: #666;
+  $vxe-primary-color: #409eff;
+  $vxe-table-font-color: $vxe-font-color;
+  $vxe-table-border-color: #3b3b3b ;
+  $vxe-table-resizable-line-color: #3b3b3b ;
+  $vxe-table-cell-area-border-color:#3b3b3b ;
+  $vxe-table-border-radius: 4px;
+  $vxe-table-border-width: 1px !default;
+  $vxe-table-body-background-color: #ffffff ;
+
+  @import 'vxe-table/styles/index.scss';
+
+  .vxe-table--render-default {
+    /*边框*/
+  .vxe-table--footer-wrapper {
+    border-top: $vxe-table-border-width solid $vxe-table-border-color !important;
+  }
+  &.border--default,
+  &.border--full,
+  &.border--outer {
+    .vxe-table--header-wrapper {
+      background-color: $vxe-table-header-background-color !important;
+    }
+  }
+  &.border--default,
+  &.border--inner {
+    .vxe-header--column,
+    .vxe-body--column,
+    .vxe-footer--column {
+      background-image: linear-gradient($vxe-table-border-color, $vxe-table-border-color)!important;
+      background-repeat: no-repeat;
+      background-size: 100% $vxe-table-border-width;
+      background-position: right bottom;
+    }
+  }
+  &.border--full {
+    .vxe-header--column,
+    .vxe-body--column,
+    .vxe-footer--column {
+      background-image: linear-gradient($vxe-table-border-color, $vxe-table-border-color), linear-gradient($vxe-table-border-color, $vxe-table-border-color) !important;
+      background-repeat: no-repeat;
+      background-size: $vxe-table-border-width 100%, 100% $vxe-table-border-width;
+      background-position: right top, right bottom;
+    }
+    .vxe-table--fixed-left-wrapper {
+      // border-right: 1px solid $vxe-table-border-color;
+      .vxe-body--column{
+        border-right-color: $vxe-table-border-color !important;
+      }
+    }
+  }
+  &.border--default,
+  &.border--full,
+  &.border--outer,
+  &.border--inner {
+    .vxe-table--header-wrapper {
+      .vxe-header--row {
+        &:last-child {
+          .vxe-header--gutter {
+            background-image: linear-gradient($vxe-table-border-color, $vxe-table-border-color)!important;
+            background-repeat: no-repeat;
+            background-size: 100% $vxe-table-border-width;
+            background-position: right bottom;
+          }
+        }
+      }
+    }
+  }
+  &.border--inner,
+  &.border--none {
+    .vxe-table--header-wrapper {
+      background-color: $vxe-table-body-background-color;
+    }
+    .vxe-table--fixed-left-wrapper {
+      border-right: 0;
+    }
+  }
+  &.border--inner {
+    .vxe-table--border-line {
+      border-width: 0 0 1px 0;
+    }
+  }
+  &.border--none {
+    .vxe-table--border-line {
+      display: none;
+    }
+    .vxe-table--header-border-line {
+      display: none;
+    }
+  }
+   /*边框线*/
+   .vxe-table--border-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    border: $vxe-table-border-width solid $vxe-table-border-color !important;
+  }
+  .vxe-body--expanded-column {
+    border-bottom: $vxe-table-border-width solid $vxe-table-border-color!important;
+    &.col--ellipsis {
+      & > .vxe-body--expanded-cell {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  }
+
