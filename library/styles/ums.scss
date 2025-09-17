@@ -59,15 +59,15 @@ html {
           transition: $base-transition;
 
           > section {
-            // background: var(--el-color-white);
-            background: $base-color-bg-cream;
+            background: var(--el-color-white);
+            // background: $base-color-bg-cream;
             transition: $base-transition;
 
             > [class*='-container'] {
               min-height: $base-keep-alive-height;
               padding: $base-padding;
-              // background: var(--el-color-white);
-              background: $base-color-bg-cream;
+              background: var(--el-color-white);
+              // background: $base-color-bg-cream;
               transition: $base-transition;
             }
           }

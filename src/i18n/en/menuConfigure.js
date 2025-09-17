@@ -1,5 +1,5 @@
 export default {
-  投标: 'Tender',
-  投标选配: 'TenderMatch',
-  投标列表: 'TenderList',
+  Ele: 'Ele',
+  表格拖拽排序: 'TableSortable',
+  正则校验: 'RegularCheck',
 }

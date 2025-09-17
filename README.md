@@ -7,12 +7,13 @@ GITHUB https://github.com/WeiYaohong/CsdnDemoVue3.git
 # 版本
 
 Node 14.19.1
-Vue3
-Element-plus
+Vue3  
+Element-plus https://element-plus.org/zh-CN/
+图标库 remixicon https://remixicon.com/
 
 # 开始使用
 
-yarn install
+npm install
 yarn serve
 
 # 说明

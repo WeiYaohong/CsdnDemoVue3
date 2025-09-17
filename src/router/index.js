@@ -60,7 +60,97 @@ export const asyncRoutes = [
       },
     ],
   },
+  {
+    path: '/elementplus',
+    name: 'elementplus',
+    component: Layout,
+    meta: {
+      title: 'Ele',
+      icon: 'layout-line',
+      breadcrumbHidden: true,
+    },
+    children: [
+      {
+        path: 'sortable',
+        name: 'sortable',
+        component: () => import('@/views/ele/sortable'),
+        meta: {
+          title: '表格拖拽排序',
+          icon: 'table-line',
+        },
+      },
+      {
+        path: 'regularcheck',
+        name: 'regularcheck',
+        component: () => import('@/views/ele/regularCheck'),
+        meta: {
+          title: '正则校验',
+          icon: 'survey-line',
+        },
+      },
+      {
+        path: 'fullscreen',
+        name: 'fullscreen',
+        component: () => import('@/views/ele/fullscreen'),
+        meta: {
+          title: '全屏封装',
+          icon: 'survey-line',
+        },
+      },
+    ],
+  },
+  {
+    path: '/echart',
+    name: 'echart',
+    component: Layout,
+    meta: {
+      title: 'Echart',
+      icon: 'layout-line',
+      breadcrumbHidden: true,
+    },
+    children: [
+      {
+        path: 'echart_pie',
+        name: 'echart_pie',
+        component: () => import('@/views/echart/pie'),
+        meta: {
+          title: '饼图',
+          icon: 'table-line',
+        },
+      },
+    ],
+  },
 
+  {
+    path: '/semcon',
+    name: 'semcon',
+    component: Layout,
+    meta: {
+      title: 'Semcon+',
+      icon: 'layout-line',
+      breadcrumbHidden: true,
+    },
+    children: [
+      {
+        path: 'workload',
+        name: 'workload',
+        component: () => import('@/views/semcon/WorkLoadMonthReport'),
+        meta: {
+          title: 'workload',
+          icon: 'table-line',
+        },
+      },
+      {
+        path: 'workload_tender',
+        name: 'workload_tender',
+        component: () => import('@/views/semcon/WorkLoadMonthTenderReport'),
+        meta: {
+          title: 'workload_tender',
+          icon: 'table-line',
+        },
+      },
+    ],
+  },
   {
     path: '/:pathMatch(.*)*',
     redirect: '/404',

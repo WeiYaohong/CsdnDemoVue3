@@ -1,10 +1,11 @@
 export default {
-  请选择: 'Please Select',
-  请输入: 'Please Input',
-  请输入报价号: 'Please Enter Code',
-  请输入项目名称: 'Please Enter Project Name',
-  当前无法新增变电站: 'Cannot add substation at present',
-  当前未选择变电站: 'No substation is currently selected',
+  请选择: 'Please Select ',
+  请输入: 'Please Input ',
   操作成功: 'Success',
   操作失败: 'Fali',
+  不能包含特殊字符: 'Cannot contain special characters.',
+  手机号格式不正确: 'Incorrect format of Tel No.',
+  邮箱格式不正确: 'Incorrect format of Email Address',
+  '密码复杂度不够(大小写字母，数字，特殊字符，长度8-30)':
+    'Password complexity is not enough (uppercase and lowercase letters, numbers, special characters, length 8-30)',
 }
